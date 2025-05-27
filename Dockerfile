@@ -13,7 +13,7 @@ COPY . .
 
 RUN  npm run  build --prod
 
-#serving to nginx
+#serving to 
 
 FROM nginx:latest
 
