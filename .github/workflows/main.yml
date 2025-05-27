@@ -3,7 +3,7 @@ name: Clone Private Repo
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   clone:
