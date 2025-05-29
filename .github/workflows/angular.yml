@@ -15,7 +15,7 @@ jobs:
 
       - name: Clone private repo
         run: |
-          git clone https://kanchana08:${{ secrets.TESTING }}@github.com/kanchana08/angular.git
+          git clone https://${{ secrets.TESTING }}@github.com/kanchana08/angular.git
 
       - name: Run commands in cloned repo
         run: |
