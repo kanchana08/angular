@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       
-      - npm run build 
+      - npm run build -- --configuration production 
 
 artifacts:
   base-directory: dist/angular-build   # <-- replace with your real folder name
