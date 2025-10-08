@@ -5,13 +5,13 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - echo Installing dependencies...
-      - npm ci
+      
+      - npm install
 
   build:
     commands:
-      - echo Building Angular app...
-      - npm run build -- --configuration production
+      
+      - npm run build 
 
 artifacts:
   base-directory: dist/angular-build   # <-- replace with your real folder name
