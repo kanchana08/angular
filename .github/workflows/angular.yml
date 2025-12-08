@@ -16,16 +16,14 @@ jobs:
     - name: Set up Node.js (v20)
       uses: actions/setup-node@v3
       with:
-        node-version: '20'   # Set Node.js to version 20 (or you can use '22')
+        node-version: '20'
 
     - name: Install dependencies
       run: npm install
 
-    # Install Angular CLI
     - name: Install Angular CLI
       run: npm install -g @angular/cli
 
-    # Build Angular app with the correct base href
     - name: Build Angular app
       run: ng build --configuration production --base-href=/angular/
 
@@ -37,5 +35,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages   # Deploy the app to the 'gh-pages' branch
+        branch: gh-pages # Deploy to the 'gh-pages' branch
         folder: dist/angular-build # Adjust this path to match your build output folder
+        token: ${{ secrets.TEST }} # Use the GitHub token stored in secrets
