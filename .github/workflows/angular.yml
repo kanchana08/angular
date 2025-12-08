@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - github_testingbranch1 # Trigger deployment only when changes are pushed to the 'main' branch
+      - github_testingbranch1  # Trigger deployment only when changes are pushed to the 'github_testingbranch1' branch
 
 jobs:
   deploy:
@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build Angular app
-      run: npm run build 
+      run: npm run build --prod  # Use '--prod' to build the app in production mode
 
     - name: Clean up previous worktree (if any)
       run: |
@@ -33,4 +33,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages   # Deploy the app to the 'gh-pages' branch
-        folder: dist/angular-build   # Adjust this path to match your build output folder
+        folder: dist/angular-build  # Adjust this path to match your build output folder
