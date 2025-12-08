@@ -27,7 +27,7 @@ jobs:
 
     # Build Angular app with the correct base href
     - name: Build Angular app
-      run: ng build --prod --base-href=/angular/
+      run: ng build --configuration production --base-href=/angular/
 
     - name: Clean up previous worktree (if any)
       run: |
