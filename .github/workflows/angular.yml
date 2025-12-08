@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - github_testingbranch1  # Trigger deployment only when changes are pushed to the 'githb_testingbranch1' branch
+      - github_testingbranch1 # Trigger deployment only when changes are pushed to the 'main' branch
 
 jobs:
   deploy:
@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        ref: github_testingbranch1  # Checkout the 'github_testingbranch1' branch
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -25,12 +23,14 @@ jobs:
 
     - name: Build Angular app
       run: npm run build 
-    - name: Show dist folder structure
-      run: ls -R dist
 
+    - name: Clean up previous worktree (if any)
+      run: |
+        git worktree remove --force github-pages-deploy-action-temp-deployment-folder || true
+        git worktree prune || true
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages   # Deploy the app to the 'gh-pages' branch
-        folder: dist/angular-build  # Path to your build output folder
+        folder: dist/angular-build   # Adjust this path to match your build output folder
