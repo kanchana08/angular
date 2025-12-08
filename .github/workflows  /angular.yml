@@ -3,7 +3,7 @@ name: Deploy Angular to GitHub Pages
 on:
   push:
     branches:
-      - github_testingbranch1  # Trigger deploymonlhen changes are pushed to ththub_testingbranch1' branch
+      - github_testingbranch1  # Trigger deploymonlhenchanges are pushed to ththub_testingbranch1' branch
 
 jobs:
   deploy:
