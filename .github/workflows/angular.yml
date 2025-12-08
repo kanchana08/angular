@@ -30,4 +30,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages   # Deploy the app to the 'gh-pages' branch
-        folder: dist/your-angular-app-name  # Path to your build output folder
+        folder: dist/angular-build  # Path to your build output folder
